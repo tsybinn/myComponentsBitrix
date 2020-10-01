@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>index.php</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #9876aa;}
+.s3 { color: #6a8759;}
+.s4 { color: #a9b7c6;}
+.s5 { color: #a9b7c6;}
+.s6 { color: #808080;}
+.s7 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+index.php</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;?</span>
+<span class="s0">require</span><span class="s1">(</span><span class="s2">$_SERVER</span><span class="s1">[</span><span class="s3">&quot;DOCUMENT_ROOT&quot;</span><span class="s1">].</span><span class="s3">&quot;/bitrix/header.php&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<span class="s2">$APPLICATION</span><span class="s1">-&gt;</span><span class="s4">SetTitle</span><span class="s1">(</span><span class="s3">&quot;Элементы&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<span class="s0">?&gt;</span>
+    <span class="s0">&lt;?</span>
+    <span class="s6">// файл /bitrix/php_interface/init.php</span>
+    <span class="s6">// регистрируем обработчик</span>
+    <span class="s4">AddEventHandler</span><span class="s1">(</span><span class="s3">&quot;iblock&quot;</span><span class="s0">, </span><span class="s3">&quot;OnBeforeIBlockElementDelete&quot;</span><span class="s0">, Array</span><span class="s1">(</span><span class="s3">&quot;MyClass&quot;</span><span class="s0">, </span><span class="s3">&quot;OnBeforeIBlockElementDeleteHandler&quot;</span><span class="s1">))</span><span class="s0">;</span>
+    <span class="s0">function </span><span class="s4">OnBeforeIBlockElementDeleteHandler</span><span class="s1">(</span><span class="s2">$ID</span><span class="s1">)</span>
+        <span class="s1">{ </span><span class="s6">// приходит только id елемента невозможно вывести var dump лучше делать на отдельнос странице</span>
+
+<span class="s6">//            CModule::IncludeModule(&quot;iblock&quot;);</span>
+<span class="s6">//            $res = CIBlockElement::GetProperty(</span>
+<span class="s6">//            7,</span>
+<span class="s6">//                $ID,</span>
+<span class="s6">//                Array(&quot;CODE&quot;=&gt;&quot;COUNTVOTING&quot;)</span>
+<span class="s6">//                      );</span>
+<span class="s6">//            $ar_res = $res-&gt;GetNext();</span>
+<span class="s6">//            var_dump($ar_res);</span>
+<span class="s6">//            if ($ar_res[&quot;SHOW_COUNTER&quot;] &gt; 1) {</span>
+<span class="s6">//                $el = new CIBlockElement; //class</span>
+<span class="s6">//                $arLoadProductArray = array(</span>
+<span class="s6">//                    &quot;ACTIVE&quot; =&gt; &quot;N&quot;,  // неактивен</span>
+<span class="s6">//                );</span>
+<span class="s6">//                $PRODUCT_ID = $ID;</span>
+<span class="s6">//                $res = $el-&gt;Update($PRODUCT_ID, $arLoadProductArray); // update   field elements</span>
+<span class="s6">//                $GLOBALS['DB']-&gt;Commit(); //Закрываем транзакцию, что заставляет БД сохранить изменения перманентно, не реагируя на последующие ошибки</span>
+<span class="s6">//                global $APPLICATION;</span>
+<span class="s6">//                $APPLICATION-&gt;throwException(&quot;Количество просмотров товара &quot; . $ar_res[&quot;NAME&quot;] . &quot; = &quot; . $ar_res[&quot;SHOW_COUNTER&quot;]);</span>
+<span class="s6">//                return false;</span>
+<span class="s6">//            }</span>
+        <span class="s1">}</span>
+        <span class="s4">OnBeforeIBlockElementDeleteHandler</span><span class="s1">(</span><span class="s7">59</span><span class="s1">)</span><span class="s0">;</span>
+
+    <span class="s0">?&gt;</span>
+
+<span class="s0">&lt;?</span><span class="s2">$APPLICATION</span><span class="s1">-&gt;</span><span class="s4">IncludeComponent</span><span class="s1">(</span>
+	<span class="s3">&quot;myComponents:taskAlt.list&quot;</span><span class="s0">, </span>
+	<span class="s3">&quot;.default&quot;</span><span class="s0">, </span>
+	<span class="s0">array</span><span class="s1">(</span>
+		<span class="s3">&quot;CACHE_GROUPS&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;Y&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;CACHE_TIME&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;180&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;CACHE_TYPE&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;A&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;DISPLAY_BOTTOM_PAGER&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;Y&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;DISPLAY_TOP_PAGER&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;N&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;ELEMENT_COUNT&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;5&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;IBLOCK_ID&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;2&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;IBLOCK_TYPE&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;sneakers&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;PAGER_BASE_LINK_ENABLE&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;N&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;PAGER_DESC_NUMBERING&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;N&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;PAGER_DESC_NUMBERING_CACHE_TIME&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;36000&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;PAGER_SHOW_ALL&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;N&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;PAGER_SHOW_ALWAYS&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;N&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;PAGER_TEMPLATE&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;.default&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;PAGER_TITLE&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;&quot;</span><span class="s0">,</span>
+		<span class="s3">&quot;PROPERTY_CODE&quot; </span><span class="s1">=&gt; </span><span class="s0">array</span><span class="s1">(</span>
+			<span class="s7">0 </span><span class="s1">=&gt; </span><span class="s3">&quot;RAITING&quot;</span><span class="s0">,</span>
+		<span class="s1">)</span><span class="s0">,</span>
+		<span class="s3">&quot;COMPONENT_TEMPLATE&quot; </span><span class="s1">=&gt; </span><span class="s3">&quot;.default&quot;</span>
+	<span class="s1">)</span><span class="s0">,</span>
+	<span class="s4">false</span>
+<span class="s1">)</span><span class="s0">;?&gt;&lt;?require</span><span class="s1">(</span><span class="s2">$_SERVER</span><span class="s1">[</span><span class="s3">&quot;DOCUMENT_ROOT&quot;</span><span class="s1">].</span><span class="s3">&quot;/bitrix/footer.php&quot;</span><span class="s1">)</span><span class="s0">;?&gt;</span></pre>
+</body>
+</html>

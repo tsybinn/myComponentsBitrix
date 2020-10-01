@@ -1,0 +1,28 @@
+.active{
+    display: none;
+}
+
+ul, li{list-style-type: none}
+#workarea p {
+    margin-left:20px;
+}
+h3{
+
+    cursor:pointer;
+
+}
+h3:hover{
+    #color: #8b0000;
+}
+h3:hover::after {
+    content: attr(data-title); /* Выводим текст */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    background: rgba(255,255,230,0.9); /* Полупрозрачный цвет фона */
+    font-family: Arial, sans-serif; /* Гарнитура шрифта */
+    font-size: 11px; /* Размер текста подсказки */
+    position: relative;
+    top:-20px;
+    #border: 1px solid #333; /* Параметры рамки */
+    color:red;
+
+}

@@ -1,0 +1,50 @@
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Курсы валют");
+?><?$APPLICATION->IncludeComponent(
+	"myComponents:ExchangeRates.list", 
+	".default", 
+	array(
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "180",
+		"CACHE_TYPE" => "A",
+		"VALUTE_NAME" => array(
+			0 => "R01010",
+			1 => "R01020A",
+			2 => "R01035",
+			3 => "R01060",
+			4 => "R01090B",
+			5 => "R01100",
+			6 => "R01115",
+			7 => "R01135",
+			8 => "R01200",
+			9 => "R01215",
+			10 => "R01235",
+			11 => "R01239",
+			12 => "R01270",
+			13 => "R01335",
+			14 => "R01350",
+			15 => "R01370",
+			16 => "R01375",
+			17 => "R01500",
+			18 => "R01535",
+			19 => "R01565",
+			20 => "R01585F",
+			21 => "R01589",
+			22 => "R01625",
+			23 => "R01670",
+			24 => "R01700J",
+			25 => "R01710A",
+			26 => "R01717",
+			27 => "R01720",
+			28 => "R01760",
+			29 => "R01770",
+			30 => "R01775",
+			31 => "R01810",
+			32 => "R01815",
+			33 => "R01820",
+		),
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
